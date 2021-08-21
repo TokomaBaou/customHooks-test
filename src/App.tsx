@@ -1,5 +1,6 @@
 import "./styles.css";
 import { UserCard } from "./compnents/UserCard";
+import axios from "axios";
 
 const user = {
   id: 1,
@@ -9,8 +10,13 @@ const user = {
 };
 
 export default function App() {
+  const onClickFechUser = () => {
+    axios.get("https://jsonplaceholder.typicode.com/users");
+  };
+
   return (
     <div className="App">
+      <button onClick={onClickFechUser}>データ取得</button>
       <UserCard user={user} />
     </div>
   );
